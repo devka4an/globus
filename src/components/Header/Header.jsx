@@ -1,9 +1,7 @@
-import React from 'react'
-import {
-    Link
-  } from "react-router-dom";
-import Icon from "./../assets/icon.svg"
-import Aim from "./../assets/aim.svg"
+import React, {useState} from 'react'
+import {Link} from 'react-router-dom'
+import Icon from "./../../assets/icon.svg"
+import "./Header.scss"
 
 export default function Header() {
     const menu = [
@@ -13,42 +11,51 @@ export default function Header() {
             isActive: true
         },{
             title: "О НАС",
-            url: '/',
+            url: '/about',
             isActive: false
         },{
             title: "КАРТА ТРЦ",
-            url: '/',
+            url: '/map',
             isActive: false
         },{
             title: "МАГАЗИНЫ",
-            url: '/',
+            url: '/store',
             isActive: false
         },{
             title: "АКЦИИ",
-            url: '/',
+            url: '/promotions',
             isActive: false
         },{
             title: "ФУД-КОРТЫ",
-            url: '/',
+            url: '/food-cort',
             isActive: false
         },{
             title: "АРЕНДАТОРАМ",
-            url: '/',
+            url: '/tenants',
             isActive: false
         },{
             title: "КОНТАКТЫ",
-            url: '/',
+            url: '/contacts',
             isActive: false
         },{
             title: "ФОТОГАЛЕРЕЯ",
-            url: '/',
+            url: '/gallery',
             isActive: false
         }
     ]
+    const [isMenuActive, setMenu] = useState(false)
+    const handleBurger = () => {
+        setMenu(!isMenuActive)
+    }
     return (
         <header className="header">
             <div className="container">
-                <div className="row align-items-center justify-content-between top-header">
+                <div className="row top-header">
+                    <button className={`burger ${isMenuActive? 'active':''}`} onClick={handleBurger}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                     <div className="tel">
                         <img src={Icon} alt="" />
                         <p>+7 727 356 15 15</p>
@@ -80,14 +87,13 @@ export default function Header() {
                         <ul className="menu">
                             {menu.map((item, i) => (
                                 <li className={`menu__item ${item.isActive? 'active':''}`} key={i}>
-                                    <a href={item.url}>{item.title}</a>
+                                    <Link to={`${item.url}`} >{item.title}</Link>
                                 </li>
                             ))}
                         </ul>
                     </div>
                 </div>
             </nav>
-
         </header>
         // <div>
         //     <Link to='/' >Main</Link>

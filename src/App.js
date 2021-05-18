@@ -7,7 +7,8 @@ import {
 
 import Main from "./pages/Main";
 import About from "./pages/About";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <Switch>
+        <div className="Page">
+          <Switch>
             <Route exact path="/">
               <Main />
             </Route>
@@ -23,6 +25,8 @@ function App() {
               <About />
             </Route>
           </Switch>
+        </div>
+        <Footer />
       </div>
     </Router>
   );
