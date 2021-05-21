@@ -1,6 +1,8 @@
 import React from 'react'
 import Banner from './../components/Banner/Banner'
 import PromoEvents from './../components/PromoEvents'
+import Cinema from './../components/Cinema'
+import Tabs from './../components/Tabs/Tabs'
 
 import "./../styles/pages/main-page.scss"
 
@@ -26,6 +28,8 @@ export default function Main() {
                 </div>
             </div>
             <PromoEvents />
+            {/* <Cinema /> */}
+            <Tabs />
         </div>
     )
 }
