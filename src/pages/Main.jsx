@@ -28,8 +28,23 @@ export default function Main() {
                 </div>
             </div>
             <PromoEvents />
-            {/* <Cinema /> */}
+            <Cinema />
             <Tabs />
+
+            <div className="inter-map">
+                <div className="container">
+                    <div className="row">
+                        <div className="left">
+                            <h1 className="heading">интерактивная <br /> карта</h1>
+                            <a href="#" className="link-to-map">перейти в интерактивную карту</a>
+                        </div>
+                        <div className="right">
+                            <p className="text">В своём стремлении улучшить пользовательский опыт мы упускаем, что ключевые особенности структуры проекта освещают чрезвычайно интересные</p>
+                            <p className="text">Мы вынуждены отталкиваться от того, что социально-экономическое.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

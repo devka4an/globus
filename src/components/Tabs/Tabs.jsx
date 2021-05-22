@@ -1,6 +1,15 @@
 import React, {useEffect, useState} from 'react'
 import "./Tabs.scss"
 
+import miniso from './../../assets/miniso.png'
+import serebr from './../../assets/serebr.png'
+import lcw from './../../assets/lcw.png'
+import huawei from './../../assets/huawei.png'
+import valav from './../../assets/valav.png'
+import locc from './../../assets/locc.png'
+import load from './../../assets/load.svg'
+import map from './../../assets/map.svg'
+
 export default function Tabs() {
     const [slcTab, setTab] = useState()
     const tabs = [{
@@ -27,87 +36,111 @@ export default function Tabs() {
 
     const contentd = [{
         title: 'Miniso',
+        poster: miniso,
         level: 1
     },{
         title: 'Serebroff',
+        poster: serebr,
         level: 1
     },{
         title: 'LC Waikiki',
+        poster: lcw,
         level: 1
     },{
         title: 'Huawei',
+        poster: huawei,
         level: 1
     },{
         title: 'MilaVitsa',
+        poster: valav,
         level: 1
     },{
         title: 'L’occitane',
+        poster: locc,
         level: 1
     },]
     const content = {
         stores: [
             {
                 title: 'Miniso',
+                poster: miniso,
                 level: 1
             },{
                 title: 'Serebroff',
+                poster: serebr,
                 level: 1
             },{
                 title: 'LC Waikiki',
+                poster: lcw,
                 level: 1
             },{
                 title: 'Huawei',
+                poster: huawei,
                 level: 1
             },{
                 title: 'MilaVitsa',
+                poster: valav,
                 level: 1
             },{
                 title: 'L’occitane',
+                poster: locc,
                 level: 1
             }
         ],
         food: [
             {
                 title: 'Huawei',
+                poster: huawei,
                 level: 1
             },{
                 title: 'Serebroff',
+                poster: serebr,
                 level: 1
             },{
                 title: 'LC Waikiki',
+                poster: lcw,
                 level: 1
             },{
                 title: 'L’occitane',
+                poster: locc,
                 level: 1
             }
         ],
         services: [
             {
                 title: 'Miniso',
+                poster: miniso,
                 level: 1
             },{
                 title: 'Serebroff',
+                poster: serebr,
                 level: 1
             },{
                 title: 'LC Waikiki',
+                poster: lcw,
                 level: 1
             }
         ],
         fun: [
             {
                 title: 'Serebroff',
+                poster: serebr,
                 level: 1
             },{
                 title: 'LC Waikiki',
-                level: 1
-            },{
+                poster: lcw,
                 level: 1
             },{
                 title: 'Huawei',
+                poster: huawei,
+                level: 1
+            },{
                 title: 'Miniso',
+                poster: miniso,
                 level: 1
             },{
                 title: 'L’occitane',
+                poster: locc,
                 level: 1
             }
         ],
@@ -118,7 +151,7 @@ export default function Tabs() {
     }
 
     useEffect(() => {
-        // setTab(tabs[0])
+        setTab(tabs[0])
     }, [])
 
     const handleTabs = (item) => {
@@ -141,8 +174,9 @@ export default function Tabs() {
                     </div>
                     <div className="tabs__content">
                         {slcTab && getContent(slcTab.slug).map((item, i) => (
-                            <div className="blocks-wrapper">
-                                <div className="block" key={i}>
+                            // <div className="blocks-wrapper" key={i} style={{backgroundImage: `url(/static/media/${item.poster})`}}>
+                            <div className="blocks-wrapper" key={i}>
+                                <div className="block" img={item.poster} style={{backgroundImage: `url(${item.poster})`}}>
                                     <div className="block__info">
                                         <span className="level">{item.level} этаж</span>
                                         <p className="title">{item.title}</p>
@@ -150,6 +184,16 @@ export default function Tabs() {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                    <div className="tabs__footer">
+                        <div className="btn">
+                            <div className="icon" style={{backgroundImage: `url(${load})`}}></div>
+                            <p>Загрузить еще</p>
+                        </div>
+                        <div className="btn green">
+                            <div className="icon" style={{backgroundImage: `url(${map})`}}></div>
+                            <p>карта трц</p>
+                        </div>
                     </div>
                 </div>
             </div>
