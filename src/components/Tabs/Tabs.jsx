@@ -186,11 +186,11 @@ export default function Tabs() {
                         ))}
                     </div>
                     <div className="tabs__footer">
-                        <div className="btn">
+                        <div className="btn" onClick={() => alert('Load more!')}>
                             <div className="icon" style={{backgroundImage: `url(${load})`}}></div>
                             <p>Загрузить еще</p>
                         </div>
-                        <div className="btn green">
+                        <div className="btn green" onClick={() => alert('Show MAP!')}>
                             <div className="icon" style={{backgroundImage: `url(${map})`}}></div>
                             <p>карта трц</p>
                         </div>

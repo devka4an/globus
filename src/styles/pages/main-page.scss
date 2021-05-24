@@ -33,6 +33,17 @@
         color: #7E8474;
     }
 }
+@media (max-width: 768px) {
+    .info {
+        flex-direction: column;
+        &_block {
+            margin-bottom: 16px;
+            .icon {
+                order: 3;
+            }
+        }
+    }
+}
 
 .inter-map {
     background: #6C6C6C;

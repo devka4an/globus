@@ -6,3 +6,13 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .Banner {
+        .wrapper {
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+}
