@@ -1,5 +1,8 @@
 .tabs {
     width: 100%;
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
     &__header {
         display: flex;
         justify-content: space-between;

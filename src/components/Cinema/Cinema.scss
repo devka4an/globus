@@ -1,5 +1,8 @@
 .cinema {
     background: #454545;
+    @media screen and (max-width: 768px) {
+        padding: 0 30px;
+    }
     .heading {
         font-size: 48px;
         font-weight: bold;
@@ -7,12 +10,15 @@
         margin-top: 80px;
         margin-bottom: 40px;
         text-transform: uppercase;
+        @media screen and (max-width: 768px) {
+            font-size: 24px;
+        }
     }
     .row {
         position: relative;
         &:before {
             position: absolute;
-            top: 0;
+            top: -1px;
             right: 0;
             content: '';
             width: 0;
@@ -20,6 +26,11 @@
             border-left: 100px solid transparent;
             border-right: 100px solid transparent;
             border-top: 70px solid #8DC100;
+            @media screen and (max-width: 768px) {
+                border-left: 45px solid transparent;
+                border-right: 45px solid transparent;
+                border-top: 30px solid #8DC100;
+            }
         }
     }
     .wrapper {
@@ -31,12 +42,13 @@
     &__block {
         display: flex;
         flex-direction: column;
-        width: 350px;
+        // width: 350px;
         height: 359px;
         background: #fff;
         color: #fff;
         border-radius: 9px;
         overflow: hidden;
+        margin-right: 10px;
         box-shadow: 0px 4px 4px rgba(98, 98, 98, 0.25);
         .bg {
             width: 100%;
@@ -69,7 +81,7 @@
             cursor: pointer;
         }
     }
-    .carousel-dots {
-        text-align: right;
+    .carousel-wrapper {
+        padding: 30px 0;
     }
 }

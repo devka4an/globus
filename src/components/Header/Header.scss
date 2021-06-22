@@ -98,19 +98,40 @@
   .nav-menu {
     width: 100%;
     background-color: #8ABB09;
+    @media screen and (max-width: 768px) {
+      background-color: #fff;
+      overflow: hidden;
+      margin-top: 10px;
+    }
     .menu {
       width: 100%;
       display: flex;
       justify-content: space-between;
       color: #fff;
       text-transform: uppercase;
+      transition: 0.2s;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        max-height: 0;
+        &.show {
+          max-height: 1000px;
+          
+        }
+      }
       &__item {
+        @media screen and (max-width: 768px) {
+          margin-bottom: 5px;
+          background-color: #8ABB09;
+        }
         &.active {
           font-weight: bold;
         }
         a {
           display: block;
           line-height: 53px;
+          @media screen and (max-width: 768px) {
+            padding: 0 15px;
+          }
         }
       }
     }
@@ -166,9 +187,6 @@
       justify-content: space-around;
       height: 44px;
 
-    }
-    .nav-menu {
-      display: none;
     }
     .logo {
       width: 105px;

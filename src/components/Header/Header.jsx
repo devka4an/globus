@@ -1,9 +1,13 @@
-import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
+import React, {useState ,useEffect} from 'react'
+import {Link, withRouter} from 'react-router-dom'
 import Icon from "./../../assets/icon.svg"
 import "./Header.scss"
 
-export default function Header() {
+function Header(props) {
+    const [isMenuActive, setMenu] = useState(false)
+    useEffect(() => {
+        setMenu(false)
+    },[props.location.pathname])
     const menu = [
         {
             title: "ГЛАВНАЯ",
@@ -43,7 +47,6 @@ export default function Header() {
             isActive: false
         }
     ]
-    const [isMenuActive, setMenu] = useState(false)
     const handleBurger = () => {
         setMenu(!isMenuActive)
     }
@@ -84,7 +87,7 @@ export default function Header() {
             <nav className="nav-menu">
                 <div className="container">
                     <div className="row">
-                        <ul className="menu">
+                        <ul className={`menu ${isMenuActive?'show':''}`}>
                             {menu.map((item, i) => (
                                 <li className={`menu__item ${item.isActive? 'active':''}`} key={i}>
                                     <Link to={`${item.url}`} >{item.title}</Link>
@@ -101,3 +104,6 @@ export default function Header() {
         // </div>
     )
 }
+
+
+export default withRouter(Header);

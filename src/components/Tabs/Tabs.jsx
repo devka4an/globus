@@ -155,7 +155,6 @@ export default function Tabs() {
     }, [])
 
     const handleTabs = (item) => {
-        console.log('handleTabs:', item);
         setTab(item)
     }
 

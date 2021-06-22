@@ -24,3 +24,164 @@ li {
 .App {
   background-image: url('./../assets/main-page.png');
 }
+.Page {
+  &_top {
+    width: 100%;
+    margin: 60px 0;
+    display: flex;
+    justify-content: space-between;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      // align-items: center;
+      padding: 0 30px;
+    }
+  }
+  &_heading {
+    font-size: 40px;
+    color: #8ABB09;
+    text-transform: uppercase;
+    font-weight: bold;
+    @media screen and (max-width: 768px) {
+      font-size: 24px;
+    }
+  }
+  .call {
+    font-size: 40px;
+    color: #878787;
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 768px) {
+      font-size: 26px;
+    }
+  }
+}
+
+.map {
+  &-wrapper {
+    border: 1px solid #000;
+    svg {
+      width: 100%;
+    }
+  }
+}
+
+
+.tenants {
+  .row {
+    @media screen and (max-width: 768px) {}
+  }
+  .icon {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 15px;
+    background-repeat: no-repeat;
+    &.tel {
+      background-image: url('./../assets/icon.svg');
+    }
+    @media screen and (max-width: 768px) {
+      width: 26px;
+      height: 26px;
+    }
+  }
+  .article {
+    color: #878787;
+    margin-bottom: 60px;
+    &-wrapper {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      padding-right: 30px;
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        padding: 0 30px;
+        order: 3;
+      }
+    }
+    &_title {
+      text-transform: uppercase;
+      color: #979797;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+    &_text {
+      font-size: 24px;
+      line-height: 26px;
+      margin-bottom: 20px;
+    }
+  }
+  .form {
+    height: auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      padding: 0 30px;
+      order: 2;
+    }
+    input {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #bbb;
+      font-size: 24px;
+      padding: 20px 30px;
+      outline: unset;
+      margin-top: 10px;
+    }
+    .submit-btn {
+      font-size: 24px;
+      background: #8ABB09;
+      border-radius: 8px;
+      font-weight: bold;
+      color: #fff;
+      padding: 25px 30px;
+      border: none;
+      margin-top: 30px;
+    }
+  }
+  &-bg {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    background-image: url('./../assets/mini-bg.png');
+    background-size: cover;
+    background-position: 100% 100%;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+}
+
+.promotions {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 40px 0;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    padding: 0 15px;
+  }
+  .prom {
+    flex-basis: 30%;
+    margin-bottom: 36px;
+    &_poster {
+      background: #8ABB09;
+      height: 215px;
+    }
+    &_info {
+      padding: 15px 20px;
+      background: #fff;
+    }
+    &_date {
+      font-size: 14px;
+    }
+    &_title {
+      font-size: 24px;
+      font-weight: normal;
+    }
+  }
+}
