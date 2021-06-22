@@ -57,11 +57,13 @@ li {
 }
 
 .map {
-  &-wrapper {
-    border: 1px solid #000;
-    svg {
-      width: 100%;
-    }
+  display: flex;
+  justify-content: center;
+  background-image: url('./../assets/map-bg.png');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  & .show {
+    fill: yellow;
   }
 }
 
