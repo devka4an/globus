@@ -3,50 +3,44 @@ import {Link, withRouter} from 'react-router-dom'
 import Icon from "./../../assets/icon.svg"
 import "./Header.scss"
 
-function Header(props) {
+function Header({props}) {
     const [isMenuActive, setMenu] = useState(false)
-    useEffect(() => {
-        setMenu(false)
-    },[props.location.pathname])
+    const [menuItem, setMenuItem] = useState()
     const menu = [
         {
             title: "ГЛАВНАЯ",
             url: '/',
-            isActive: true
         },{
             title: "О НАС",
             url: '/about',
-            isActive: false
         },{
             title: "КАРТА ТРЦ",
             url: '/map',
-            isActive: false
         },{
             title: "МАГАЗИНЫ",
             url: '/store',
-            isActive: false
         },{
             title: "АКЦИИ",
             url: '/promotions',
-            isActive: false
         },{
             title: "ФУД-КОРТЫ",
             url: '/food-cort',
-            isActive: false
         },{
             title: "АРЕНДАТОРАМ",
-            url: '/tenants',
-            isActive: false
+            url: '/tenants'
         },{
             title: "КОНТАКТЫ",
-            url: '/contacts',
-            isActive: false
+            url: '/contacts'
         },{
             title: "ФОТОГАЛЕРЕЯ",
-            url: '/gallery',
-            isActive: false
+            url: '/gallery'
         }
     ]
+    useEffect(() => {
+        setMenu(false)
+        setMenuItem(location.pathname)
+    },[location.pathname])
+
     const handleBurger = () => {
         setMenu(!isMenuActive)
     }
@@ -89,7 +83,7 @@ function Header(props) {
                     <div className="row">
                         <ul className={`menu ${isMenuActive?'show':''}`}>
                             {menu.map((item, i) => (
-                                <li className={`menu__item ${item.isActive? 'active':''}`} key={i}>
+                                <li className={`menu__item ${item.url === location.pathname? 'active':''}`} key={i}>
                                     <Link to={`${item.url}`} >{item.title}</Link>
                                 </li>
                             ))}

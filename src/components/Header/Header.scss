@@ -119,6 +119,7 @@
         }
       }
       &__item {
+        transition: all .2s;
         @media screen and (max-width: 768px) {
           margin-bottom: 5px;
           background-color: #8ABB09;

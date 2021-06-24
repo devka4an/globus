@@ -1,5 +1,9 @@
 import React, {useEffect, useState} from 'react'
+import {Link} from 'react-router-dom'
 import "./Tabs.scss"
+import {
+  useLocation
+} from "react-router-dom";
 
 import miniso from './../../assets/miniso.png'
 import serebr from './../../assets/serebr.png'
@@ -10,7 +14,8 @@ import locc from './../../assets/locc.png'
 import load from './../../assets/load.svg'
 import map from './../../assets/map.svg'
 
-export default function Tabs() {
+export default function Tabs(props) {
+    const location = useLocation()
     const [slcTab, setTab] = useState()
     const tabs = [{
         id: "001",
@@ -34,55 +39,36 @@ export default function Tabs() {
         count: 2
     },]
 
-    const contentd = [{
-        title: 'Miniso',
-        poster: miniso,
-        level: 1
-    },{
-        title: 'Serebroff',
-        poster: serebr,
-        level: 1
-    },{
-        title: 'LC Waikiki',
-        poster: lcw,
-        level: 1
-    },{
-        title: 'Huawei',
-        poster: huawei,
-        level: 1
-    },{
-        title: 'MilaVitsa',
-        poster: valav,
-        level: 1
-    },{
-        title: 'L’occitane',
-        poster: locc,
-        level: 1
-    },]
     const content = {
         stores: [
             {
                 title: 'Miniso',
+                slug: 'miniso',
                 poster: miniso,
                 level: 1
             },{
                 title: 'Serebroff',
+                slug: 'serebroff',
                 poster: serebr,
                 level: 1
             },{
                 title: 'LC Waikiki',
+                slug: 'lcwikiki',
                 poster: lcw,
                 level: 1
             },{
                 title: 'Huawei',
+                slug: 'huawei',
                 poster: huawei,
                 level: 1
             },{
                 title: 'MilaVitsa',
+                slug: 'milavitsa',
                 poster: valav,
                 level: 1
             },{
                 title: 'L’occitane',
+                slug: 'loccitane',
                 poster: locc,
                 level: 1
             }
@@ -90,18 +76,22 @@ export default function Tabs() {
         food: [
             {
                 title: 'Huawei',
+                slug: 'huawei',
                 poster: huawei,
                 level: 1
             },{
                 title: 'Serebroff',
+                slug: 'serebroff',
                 poster: serebr,
                 level: 1
             },{
                 title: 'LC Waikiki',
+                slug: 'lcwikiki',
                 poster: lcw,
                 level: 1
             },{
                 title: 'L’occitane',
+                slug: 'loccitane',
                 poster: locc,
                 level: 1
             }
@@ -109,14 +99,17 @@ export default function Tabs() {
         services: [
             {
                 title: 'Miniso',
+                slug: 'miniso',
                 poster: miniso,
                 level: 1
             },{
                 title: 'Serebroff',
+                slug: 'serebroff',
                 poster: serebr,
                 level: 1
             },{
                 title: 'LC Waikiki',
+                slug: 'lcwikiki',
                 poster: lcw,
                 level: 1
             }
@@ -124,22 +117,27 @@ export default function Tabs() {
         fun: [
             {
                 title: 'Serebroff',
+                slug: 'serebroff',
                 poster: serebr,
                 level: 1
             },{
                 title: 'LC Waikiki',
+                slug: 'lcwikiki',
                 poster: lcw,
                 level: 1
             },{
                 title: 'Huawei',
+                slug: 'huawei',
                 poster: huawei,
                 level: 1
             },{
                 title: 'Miniso',
+                slug: 'miniso',
                 poster: miniso,
                 level: 1
             },{
                 title: 'L’occitane',
+                slug: 'loccitane',
                 poster: locc,
                 level: 1
             }
@@ -151,8 +149,8 @@ export default function Tabs() {
     }
 
     useEffect(() => {
-        setTab(tabs[0])
-    }, [])
+        location.pathname === "/store" ? setTab(tabs[0]) : setTab(tabs[1])
+    }, [location])
 
     const handleTabs = (item) => {
         setTab(item)
@@ -174,14 +172,15 @@ export default function Tabs() {
                     <div className="tabs__content">
                         {slcTab && getContent(slcTab.slug).map((item, i) => (
                             // <div className="blocks-wrapper" key={i} style={{backgroundImage: `url(/static/media/${item.poster})`}}>
-                            <div className="blocks-wrapper" key={i}>
-                                <div className="block" img={item.poster} style={{backgroundImage: `url(${item.poster})`}}>
+                            // <Link to={`${item.url}`} >{item.title}</Link>
+                            <Link to={`/store/${item.slug}`}  className="blocks-wrapper" key={i}>
+                                <div className="block" style={{backgroundImage: `url(${item.poster})`}}>
                                     <div className="block__info">
                                         <span className="level">{item.level} этаж</span>
                                         <p className="title">{item.title}</p>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                     <div className="tabs__footer">

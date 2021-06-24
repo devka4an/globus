@@ -1,17 +1,16 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {
-  Router,
   Switch,
-  Route
+  Route,
+  useLocation
 } from "react-router-dom";
-import { createBrowserHistory } from "history";
 
 import Main from "./pages/Main";
 import About from "./pages/About";
 import Map from "./pages/Map";
 import Store from "./pages/Store";
 import Promotions from "./pages/Promotions";
-import FoodCort from "./pages/FoodCort";
+import StoreCard from "./pages/StoreCard";
 import Tenants from "./pages/Tenants";
 import Contacts from "./pages/Contacts";
 import Gallery from "./pages/Gallery";
@@ -19,11 +18,10 @@ import Gallery from "./pages/Gallery";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
-const history = createBrowserHistory();
-
 function App() {
+  const location = useLocation()
+
   return (
-    <Router history={history}>
       <div className="App">
         <Header />
         <div className="Page">
@@ -44,7 +42,7 @@ function App() {
               <Promotions />
             </Route>
             <Route exact path="/food-cort">
-              <FoodCort />
+              <Store tab={'food'} />
             </Route>
             <Route exact path="/tenants">
               <Tenants />
@@ -55,11 +53,13 @@ function App() {
             <Route exact path="/gallery">
               <Gallery />
             </Route>
+            <Route exact path="/store/:slug">
+              <StoreCard />
+            </Route>
           </Switch>
         </div>
-        <Footer />
+        {location.pathname !== "/contacts" && <Footer />}
       </div>
-    </Router>
   );
 }
 
