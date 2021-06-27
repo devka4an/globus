@@ -161,14 +161,14 @@ export default function Tabs(props) {
         <div className="container">
             <div className="row">
                 <div className="tabs">
-                    <div className="tabs__header">
+                    {props.showTabs && <div className="tabs__header">
                         {tabs.map((item, i) => (
                             <div className={`tab ${ slcTab? (item.id == slcTab.id ? 'active':''):'' }`} key={i} onClick={() => handleTabs(item)}>
                                 <span className="tab__title">{item.title}</span>
                                 <span className="count">{item.count}</span>
                             </div>
                         ))}
-                    </div>
+                    </div>}
                     <div className="tabs__content">
                         {slcTab && getContent(slcTab.slug).map((item, i) => (
                             // <div className="blocks-wrapper" key={i} style={{backgroundImage: `url(/static/media/${item.poster})`}}>

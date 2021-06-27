@@ -14,7 +14,7 @@ export default function StoreCard() {
                             {/* <img src={miniso} alt="ICON" /> */}
                             <div className="card__poster" style={{backgroundImage: `url(${miniso})`}}></div>
                             <div className="card__info">
-                                <span className="card__bread">Главная / магазины</span>
+                                <span className="card__bread"><a href="/">Главная</a> / <a href="/store">магазины</a></span>
                                 <h3 className="card__title">miniso</h3>
                                 <span className="card__subtitle">1 этаж</span>
                                 <span className="card__subtitle">10:00-22:00</span>

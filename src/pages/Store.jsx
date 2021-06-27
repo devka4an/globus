@@ -9,7 +9,8 @@ export default function Store({tab}) {
                 <Bread />
                 <h1 className="Page_heading">Магазины</h1>
             </div>
-            <Tabs tab={tab} />
+            <Tabs tab={tab} showTabs={false} />
+            
         </div>
     )
 }

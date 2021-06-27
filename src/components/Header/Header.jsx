@@ -15,7 +15,8 @@ function Header({props}) {
             url: '/about',
         },{
             title: "КАРТА ТРЦ",
-            url: '/map',
+            type: 'absolute',
+            url: '/map.html',
         },{
             title: "МАГАЗИНЫ",
             url: '/store',
@@ -84,7 +85,7 @@ function Header({props}) {
                         <ul className={`menu ${isMenuActive?'show':''}`}>
                             {menu.map((item, i) => (
                                 <li className={`menu__item ${item.url === location.pathname? 'active':''}`} key={i}>
-                                    <Link to={`${item.url}`} >{item.title}</Link>
+                                    {item.type == "absolute" ? <a href="/map.html">{item.title}</a> :<Link to={`${item.url}`} >{item.title}</Link>}
                                 </li>
                             ))}
                         </ul>

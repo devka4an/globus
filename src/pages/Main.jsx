@@ -13,23 +13,23 @@ export default function Main() {
             <div className="info">
                 <div className="info_block">
                     <h2 className="info_title">адрес</h2>
-                    <div className="icon"></div>
+                    <div className="icon adress"></div>
                     <p className="info_text">г. Алматы, пр. Абая, 52В <br /> уг. ул. Ауэзова</p>
                 </div>
                 <div className="info_block">
-                    <h2 className="info_title">адрес</h2>
-                    <div className="icon"></div>
-                    <p className="info_text">г. Алматы, пр. Абая, 52В <br /> уг. ул. Ауэзова</p>
+                    <h2 className="info_title">ВРЕМЯ РАБОТЫ</h2>
+                    <div className="icon time"></div>
+                    <p className="info_text">Ежедневно без выходных <br /> с 10:00 до 22:00</p>
                 </div>
                 <div className="info_block">
-                    <h2 className="info_title">адрес</h2>
-                    <div className="icon"></div>
-                    <p className="info_text">г. Алматы, пр. Абая, 52В <br /> уг. ул. Ауэзова</p>
+                    <h2 className="info_title">карта молла</h2>
+                    <div className="icon map"></div>
+                    <p className="info_text">Интерактивная карта молла <a href="/map">Смотреть карту</a></p>
                 </div>
             </div>
             <PromoEvents />
             <Cinema />
-            <Tabs />
+            <Tabs showTabs={true} />
 
             <div className="inter-map">
                 <div className="container">
