@@ -8,9 +8,9 @@ import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
 
 ReactDOM.render(
-  <HashRouter history={history}>
+  <Router history={history}>
     <App />
-  </HashRouter>,
+  </Router>,
   document.getElementById('root')
 );
 
