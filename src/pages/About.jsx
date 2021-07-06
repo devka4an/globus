@@ -1,8 +1,19 @@
 import React from 'react'
 import "./../styles/pages/about-page.scss"
 import poster from './../assets/about-page.png'
+import API from './../utils/api';
 
 export default function About() {
+    const [data, setData] = React.useState([])
+
+
+    React.useEffect(() => {
+        API.get(`/about`)
+            .then(res => {
+                setData(res.data?.info)
+            })
+    }, [])
+
     return (
         <div>
             <div className="page-poster">
@@ -54,7 +65,17 @@ export default function About() {
                     <h2 className="main-title">несколько слов <br /> <span>о globus</span></h2>
 
                     <p className="text">Открытый в 2010 г., современный торгово-развлекательный комплекс Globus быстро завоевал симпатии жителей города и стал одним среди самых популярных торговых центров Алматы. Этот престижный центр отличается очень удобным месторасположением, прекрасной архитектурой, интересными дизайнерскими решениями и высочайшим уровнем сервиса. </p>
-                    <h3 className="sub-title">
+                    
+                    {data.map((item, i) => (
+                        <>
+                            <h3 className="sub-title">
+                                <span className="icon icon1"></span>
+                                {item.title}
+                            </h3>
+                            <p className="text">{item.description}</p>
+                        </>
+                    ))}
+                    {/* <h3 className="sub-title">
                         <span className="icon icon1"></span>
                         Расположение торгового центра Globus
                     </h3>
@@ -84,7 +105,7 @@ export default function About() {
                     <hr className="divider" />
 
                     <p className="text">Торгово-развлекательный комплекс Globus способен удовлетворить запросы каждого! Комфортная атмосфера, множество возможностей для приятного отдыха всей семьей и общения, супермаркет и множество бутиков помогут провести время с максимальной пользой.</p>
-                    <p className="text">Для комфорта своих посетителей, дизайнеры торгового центра Globus создали удивительный интерьер, повторяющий стиль старого города со своими улицами. Посещение Globus всегда оставит множество положительных эмоций о приятно проведённом времени!</p>
+                    <p className="text">Для комфорта своих посетителей, дизайнеры торгового центра Globus создали удивительный интерьер, повторяющий стиль старого города со своими улицами. Посещение Globus всегда оставит множество положительных эмоций о приятно проведённом времени!</p> */}
                 </div>
             </div>
         </div>

@@ -29,7 +29,7 @@ export default function Main() {
             </div>
             <PromoEvents />
             <Cinema />
-            <Tabs showTabs={true} />
+            <Tabs tab={[]} showTabs={true} />
 
             <div className="inter-map">
                 <div className="container">

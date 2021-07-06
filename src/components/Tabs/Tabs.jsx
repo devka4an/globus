@@ -4,6 +4,7 @@ import "./Tabs.scss"
 import {
   useLocation
 } from "react-router-dom";
+import { API_URL } from './../../utils/env';
 
 import miniso from './../../assets/miniso.png'
 import serebr from './../../assets/serebr.png'
@@ -170,14 +171,14 @@ export default function Tabs(props) {
                         ))}
                     </div>}
                     <div className="tabs__content">
-                        {slcTab && getContent(slcTab.slug).map((item, i) => (
+                        {props.tab.map((item, i) => (
                             // <div className="blocks-wrapper" key={i} style={{backgroundImage: `url(/static/media/${item.poster})`}}>
                             // <Link to={`${item.url}`} >{item.title}</Link>
-                            <Link to={`/store/${item.slug}`}  className="blocks-wrapper" key={i}>
-                                <div className="block" style={{backgroundImage: `url(${item.poster})`}}>
+                            <Link to={`/store/${item.category_id}`}  className="blocks-wrapper" key={i}>
+                                <div className="block" style={{backgroundImage: `url(${API_URL}${item.logo})`}}>
                                     <div className="block__info">
-                                        <span className="level">{item.level} этаж</span>
-                                        <p className="title">{item.title}</p>
+                                        <span className="level">{item.floor} этаж</span>
+                                        <p className="title">{item.name}</p>
                                     </div>
                                 </div>
                             </Link>
